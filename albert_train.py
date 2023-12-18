@@ -10,10 +10,10 @@ import tensorflow as tf
 EPOCH = 100
 BATCH = 32
 LEARNING_RATE = 1e-5
-MODEL_PATH="my-albert-202312181131.h5"
+MODEL_PATH="models/my-albert-202312181131.h5"
 
 # Baca dataset dari CSV
-FILE_PATH = 'sentiment_data_albert.csv'
+FILE_PATH = 'datasets/sentiment_data_albert.csv'
 df = pd.read_csv(FILE_PATH)
 
 # Persiapkan data

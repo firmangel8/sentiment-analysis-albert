@@ -8,7 +8,7 @@ label_mapping = {'Positive': 0, 'Negative': 1}
 # label_mapping = {'Very Positive': 0, 'Very Negative': 1, 'Mixed': 2, 'Positive': 3, 'Negative': 4, 'Neutral': 5}
 MAX_LENGTH = 1000
 NUM_LABELS = 2 # Adjust num_labels based on the number of sentiments
-MODEL_PATH = 'my-albert-202312181131.h5'
+MODEL_PATH = 'models/my-albert-202312181131.h5'
 BASE_PRETRAINED_MODEL='albert-base-v2'
 
 

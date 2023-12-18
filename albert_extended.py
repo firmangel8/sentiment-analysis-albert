@@ -7,7 +7,7 @@ import tensorflow as tf
 from albert_predict import NUM_LABELS
 
 # Read dataset from CSV
-FILE_PATH = 'sentiment_data_extended.csv'
+FILE_PATH = 'datasets/sentiment_data_extended.csv'
 df = pd.read_csv(FILE_PATH)
 EPOCH = 100
 BATCH = 32
@@ -15,6 +15,7 @@ LEARNING_RATE = 1e-5
 MAX_LENGTH = 128
 BASE_PRETRAINED_MODEL='albert-base-v2'
 NUM_LABELS=6
+MODEL_PATH="models/my-albert-extended-202312181131.h5"
 
 # Prepare data
 train_texts, test_texts, train_labels, test_labels = train_test_split(
@@ -76,4 +77,4 @@ predicted_labels = tf.argmax(logits, axis=1).numpy()
 predicted_sentiments = [list(label_mapping.keys())[list(label_mapping.values()).index(label)] for label in predicted_labels]
 print("Predicted sentiments:", predicted_sentiments)
 
-model.save_weights('albert-extended.h5') # type: ignore
+model.save_weights(MODEL_PATH) # type: ignore
