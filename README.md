@@ -20,5 +20,5 @@ The project aim to demonstrate pipelines of sentiment analysis research. In this
 - Prediction
 
 ## References
-> https://arxiv.org/abs/1810.04805
-> https://huggingface.co/docs/transformers/model_doc/albert
+https://arxiv.org/abs/1810.04805 <br>
+https://huggingface.co/docs/transformers/model_doc/albert
