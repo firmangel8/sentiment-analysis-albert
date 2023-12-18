@@ -20,9 +20,9 @@ The project aim to demonstrate pipelines of sentiment analysis research. In this
 - Prediction
 
 ## How to use
-1. For training models to binary sentiment classification please run `python albert_train.py`
-2. For training models to multiclass sentiment classification please run `python albert_extended.py`
-3. For test prediction, please run `python albert_predict.py`, make sure to config parameter models and number labels train.
+1. To train models for binary sentiment classification, please run the command `python albert_train.py`.
+2. To train models for multiclass sentiment classification, please run the command `python albert_extended.py`.
+3. For test predictions, please run the command `python albert_predict.py`. Make sure to configure the model parameters and the number of labels used for training.
 
 ## References
 https://arxiv.org/abs/1810.04805 <br>
