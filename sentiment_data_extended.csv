@@ -1,0 +1,28 @@
+text,sentiment
+"I love this product! It's amazing.",Very Positive
+"The service was terrible. I'm never coming back.",Very Negative
+"This movie is just okay. Not great, but not terrible.",Mixed
+"I can't believe how fast the delivery was! Great service.",Positive
+"The quality of the product is disappointing.",Negative
+"I'm indifferent about this. It's neither good nor bad.",Neutral
+"The team did a fantastic job on this project.",Very Positive
+"The customer support was unhelpful and rude.",Very Negative
+"The weather today is neither good nor bad.",Neutral
+"This is a wonderful experience. I highly recommend it.",Positive
+"I'm not impressed with the performance of this device.",Negative
+"The food at the restaurant was delicious.",Positive
+"I'm satisfied with the quality of the service.",Positive
+"The price of the product is too high for its value.",Negative
+"The atmosphere at the event was lively and enjoyable.",Positive
+"I had a terrible experience with this company.",Very Negative
+"The product exceeded my expectations.",Very Positive
+"I'm neutral about the new policy changes.",Neutral
+"The team worked hard, but the outcome was disappointing.",Mixed
+"The customer service was prompt and helpful.",Positive
+"I'm unsure how to feel about this situation.",Mixed
+"This new feature is a game-changer. Excited to use it!",Very Positive
+"I dislike the changes made to the user interface.",Negative
+"The concert was average. Not the best, but not the worst.",Mixed
+"The support team resolved my issue quickly. Great service.",Positive
+"I have mixed feelings about the latest software update.",Mixed
+"Absolutely thrilled with the new design updates!",Very Positive
