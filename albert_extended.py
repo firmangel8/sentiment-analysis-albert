@@ -1,15 +1,20 @@
+""" Train model for multiclass sentiment analysis """
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from transformers import AlbertTokenizer, TFAlbertForSequenceClassification
 import tensorflow as tf
 
+from albert_predict import NUM_LABELS
+
 # Read dataset from CSV
-file_path = 'sentiment_data_extended.csv'
-df = pd.read_csv(file_path)
+FILE_PATH = 'sentiment_data_extended.csv'
+df = pd.read_csv(FILE_PATH)
 EPOCH = 100
 BATCH = 32
 LEARNING_RATE = 1e-5
 MAX_LENGTH = 128
+BASE_PRETRAINED_MODEL='albert-base-v2'
+NUM_LABELS=6
 
 # Prepare data
 train_texts, test_texts, train_labels, test_labels = train_test_split(
@@ -20,8 +25,8 @@ train_texts, test_texts, train_labels, test_labels = train_test_split(
 )
 
 # Download ALBERT Pre-trained Model
-tokenizer = AlbertTokenizer.from_pretrained('albert-base-v2')
-model = TFAlbertForSequenceClassification.from_pretrained('albert-base-v2', num_labels=6)  # Adjust num_labels based on the number of sentiments
+tokenizer = AlbertTokenizer.from_pretrained(BASE_PRETRAINED_MODEL)
+model = TFAlbertForSequenceClassification.from_pretrained(BASE_PRETRAINED_MODEL, num_labels=NUM_LABELS)  # Adjust num_labels based on the number of sentiments
 
 
 
@@ -45,13 +50,14 @@ train_dataset = tf.data.Dataset.from_tensor_slices(((train_input_ids, train_atte
 test_dataset = tf.data.Dataset.from_tensor_slices(((test_input_ids, test_attention_mask), test_labels_numeric))
 
 # Training Model
-optimizer = tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE)
-model.compile(optimizer=optimizer, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+# pylint: disable=no-member
+optimizer = tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE) # type: ignore
+model.compile(optimizer=optimizer, loss='sparse_categorical_crossentropy', metrics=['accuracy']) # type: ignore
 
-model.fit(train_dataset.batch(BATCH), epochs=EPOCH)
+model.fit(train_dataset.batch(BATCH), epochs=EPOCH) # type: ignore
 
 # Evaluate Model
-eval_results = model.evaluate(test_dataset.batch(BATCH))
+eval_results = model.evaluate(test_dataset.batch(BATCH)) # type: ignore
 print("Test loss:", eval_results[0])
 print("Test accuracy:", eval_results[1])
 
@@ -62,7 +68,7 @@ new_encodings = tokenizer(new_texts, truncation=True, padding=True, max_length=M
 new_input_ids = new_encodings['input_ids'].numpy()
 new_attention_mask = new_encodings['attention_mask'].numpy()
 
-predictions = model.predict([new_input_ids, new_attention_mask])
+predictions = model.predict([new_input_ids, new_attention_mask]) # type: ignore
 # Mengambil logits dari TFSequenceClassifierOutput
 logits = predictions.logits
 # Mengambil prediksi sentimen
@@ -70,4 +76,4 @@ predicted_labels = tf.argmax(logits, axis=1).numpy()
 predicted_sentiments = [list(label_mapping.keys())[list(label_mapping.values()).index(label)] for label in predicted_labels]
 print("Predicted sentiments:", predicted_sentiments)
 
-model.save_weights('albert-extended.h5')
+model.save_weights('albert-extended.h5') # type: ignore
