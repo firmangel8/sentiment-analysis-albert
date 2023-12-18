@@ -19,6 +19,11 @@ The project aim to demonstrate pipelines of sentiment analysis research. In this
 - Tensor process
 - Prediction
 
+## How to use
+1. For training models to binary sentiment classification please run `python albert_train.py`
+2. For training models to multiclass sentiment classification please run `python albert_extended.py`
+3. For test prediction, please run `python albert_predict.py`, make sure to config parameter models and number labels train.
+
 ## References
 https://arxiv.org/abs/1810.04805 <br>
 https://huggingface.co/docs/transformers/model_doc/albert
